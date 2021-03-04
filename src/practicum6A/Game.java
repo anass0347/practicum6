@@ -1,4 +1,5 @@
 package practicum6A;
+import java.time.LocalDate;
 
 public class Game {
     private String naam;
@@ -16,8 +17,16 @@ public class Game {
     }
 
     public double huidigeWaarde(){
-        double prijs = nieuwprijs * 0.7;
-        return prijs;
+        if(releaseJaar== LocalDate.now().getYear()){
+
+            return nieuwprijs;
+
+        }
+
+        if(releaseJaar == LocalDate.now().getYear()-5){
+            return (nieuwprijs* (0.7)*(0.7)*(0.7)*(0.7)*(0.7));
+        }
+        return nieuwprijs * 0.7;
     }
 
     public boolean equals(Object andereObject){
@@ -34,7 +43,7 @@ public class Game {
 
     public String toString(){
 
-        return naam + " uitgegeven in "+ releaseJaar +"; nieuwprijs: €" + String.format("%.2f",nieuwprijs) +" nu voor: €"+ String.format("%.2f",huidigeWaarde());
+        return naam + ", uitgegeven in "+ releaseJaar +"; nieuwprijs: €" + String.format("%.2f",nieuwprijs) +" nu voor: €"+ String.format("%.2f",huidigeWaarde());
 
     }
 }

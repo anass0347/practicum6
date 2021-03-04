@@ -49,7 +49,7 @@ public class Persoon {
     }
 
     public String toString(){
-        String res = naam + " heeft een budget van: €" + String.format("%.2f", getBudget()) + " en bezit de volgende games:";
+        String res = naam + " heeft een budget van €" + String.format("%.2f", getBudget()) + " en bezit de volgende games:";
         for(int i = 0; i< gameLijst.size(); i++){
             res += "\n";
             res += gameLijst.get(i);
